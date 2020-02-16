@@ -1,0 +1,40 @@
+fastlane_version "2.102.0"
+
+default_platform :android
+
+platform :android do
+  lane :bump_version_code do
+    path = '../app/build.gradle'
+    re = /versionCode\s+(\d+)/
+    s = File.read(path)
+    currentVersionCode = s[re, 1].to_i
+    puts "Current version code is " + currentVersionCode.to_s
+
+    versionCode = currentVersionCode + 1
+    s[re, 1] = versionCode.to_s
+
+    f = File.new(path, 'w')
+    f.write(s)
+    f.close
+    puts "Version code is now bump to " + versionCode.to_s + " 🚀"
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  lane :beta do
+    bump_version_code
+    gradle(
+      task: 'assemble',
+      build_type: 'Release'
+    )
+
+    crashlytics(
+      apk_path: './app/build/outputs/apk/release/app-release.apk',
+      api_token: "98acaa23951b42f9fcb7a6584da7fbd78ac5464c",
+      build_secret: "ff6cb249f8d0787d2b5fc9ed8455ae3c73dc2441e69ff866a5cf4d35eee0167f",
+      notes: 'New version'
+    )
+
+    notification(subtitle: "Seekers Android", message: "Success Upload to Beta")
+  end
+end
+

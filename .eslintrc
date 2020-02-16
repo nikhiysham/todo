@@ -1,0 +1,87 @@
+{
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "globals": {
+        "window": true,
+        "document": true
+    },
+    "plugins": [
+        "flowtype",
+        "jest",
+        "react",
+        "sorting"
+    ],
+    "env": {
+        "jest/globals": true
+    },
+    "rules": {
+        "react/no-array-index-key": ["warn"],
+        "arrow-body-style": ["off"],
+        "comma-dangle": [
+            "error",
+                {
+                    "arrays": "only-multiline",
+                    "exports": "only-multiline",
+                    "functions": "never",
+                    "imports": "only-multiline",
+                    "objects": "only-multiline"
+                }
+        ],
+        "class-methods-use-this": [
+          "off",
+          {
+            "exceptMethods": [
+              "getDefaultData",
+              "componentDidMount",
+              "componentDidUpdate",
+              "componentWillMount",
+              "componentWillReceiveProps",
+              "componentWillUnmount",
+              "componentWillUpdate",
+              "render",
+              "shouldComponentUpdate"
+            ]
+          }
+        ],
+        "flowtype/define-flow-type": 1,
+        "import/extensions": ["off"],
+        "import/no-extraneous-dependencies": ["off"],
+        "import/no-unresolved": ["off"],
+        "import/prefer-default-export": ["off"],
+        "indent": ["error", 2, { "SwitchCase": 1 }],
+        "jsx-a11y/anchor-has-content": ["off"],
+        "jsx-a11y/href-no-hash": ["off"],
+        "jsx-a11y/label-has-for": ["off"],
+        "no-use-before-define": ["error", { "functions": false }],
+        "object-curly-spacing": ["off"],
+        "padded-blocks": ["error", { "classes": "always" }],
+        "react/forbid-prop-types": ["off"],
+        "react/jsx-closing-bracket-location": ["off"],
+        "react/jsx-filename-extension": ["off"],
+        "react/jsx-indent": ["error", 2],
+        "react/jsx-indent-props": ["error", 2],
+        "react/jsx-sort-props": ["off"],
+        "react/no-string-refs": ["error"],
+        "react/prefer-stateless-function": ["off"],
+        "react/react-in-jsx-scope": ["off"],
+        "react/self-closing-comp": ["error", {"html": false}],
+        "react/sort-comp": ["error", {
+            "groups": {
+                "rendering": [
+                    "/^render.+$/",
+                    "render"
+                ]
+            },
+            "order": [
+                "static-methods",
+                "lifecycle",
+                "everything-else",
+                "rendering"
+            ]
+        }]
+    }
+}
+

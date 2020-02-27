@@ -7,3 +7,5 @@ export const gray = 'gray';
 export const lightGray = '#CCCCCC';
 export const black = 'black';
 export const white = 'white';
+export const blue = 'blue';
+export const red = 'red';

@@ -4,7 +4,6 @@ import {
 import Actions from 'actions';
 import _ from 'lodash';
 import * as api from 'src/lib/api';
-import { alert } from 'src/lib/alert';
 
 export function* fetchUserList(action) {
   try {

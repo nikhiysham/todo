@@ -10,8 +10,6 @@ import Actions from 'actions';
 import Spinner from 'common/Spinner';
 import _ from 'lodash';
 import { Text } from 'common/Text';
-import * as Colors from 'themes/colors'
-import NavigationService from 'src/components/navigator/NavigationService';
 import ListItem from './ListItem';
 
 const styles = StyleSheet.create({
@@ -31,7 +29,6 @@ const styles = StyleSheet.create({
 
 class List extends Component {
   state = {}
-
 
   renderItem = ({ item }) => {
     const { navigation } = this.props;
@@ -72,12 +69,11 @@ class List extends Component {
     const {
       userStore: {
         isLoading,
-        onEndReached,
         isRefreshing,
       }
     } = this.props;
 
-    if (isLoading && !onEndReached && !isRefreshing) {
+    if (isLoading && !isRefreshing) {
       return (
         <Spinner />
       );

@@ -7,3 +7,5 @@ export const signOut = params => api.get('logout', params);
 
 //home
 export const fetchUserList = params => api.get('list', params);
+export const updateUser = params => api.put('update', params);
+export const deleteUser = params => api.delete('delete', params);

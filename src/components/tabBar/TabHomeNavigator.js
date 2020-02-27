@@ -3,9 +3,11 @@ import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import Images from 'themes/images';
 import Home from 'src/components/tabHome';
+import Update from 'src/components/tabHome/Update';
 
 const routeConfiguration = {
-  Home: { screen: Home }
+  Home: { screen: Home },
+  Update: { screen: Update }
 };
 
 const stackNavigatorConfiguration = {
@@ -15,12 +17,17 @@ const stackNavigatorConfiguration = {
 
 const TabHomeNavigator = createStackNavigator(routeConfiguration, stackNavigatorConfiguration);
 
-TabHomeNavigator.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => {
-    return (
-      <Image source={focused ? Images.homeActive : Images.home} style={styles.icon} />
-    )
+TabHomeNavigator.navigationOptions = ({ navigation }) => {
+  // console.log('#NAV:', navigation)
+  const { state } = navigation;
+  return {
+    tabBarLabel: 'Home',
+    tabBarVisible: state.index < 1,
+    tabBarIcon: ({ focused }) => {
+      return (
+        <Image source={focused ? Images.homeActive : Images.home} style={styles.icon} />
+      )
+    }
   }
 };
 

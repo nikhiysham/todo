@@ -5,7 +5,6 @@ import Actions from 'actions';
 import { alert } from 'src/lib/alert';
 import NavigationService from 'src/components/navigator/NavigationService';
 
-
 function* signOut() {
   try {
     yield put(Actions.setToken({ accessToken: null }));

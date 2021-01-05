@@ -14,7 +14,7 @@
     "cache:clear": "watchman watch-del-all && rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-*"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "color": "^3.0.0",
     "lodash": "^4.17.10",
     "react": "16.8.3",
